@@ -1,3 +1,13 @@
+// GET ELEMENTS FROM THE DOM
+let searchBtnEl = document.querySelector("#search-btn");
+
+
+
+
+
+
+// VARIABLES
+
 let weatherRequestUrl = 'http://api.openweathermap.org/data/2.5/weather';
 let apiKey = "f35594544b9f9597df35098b60602c39";
 let city;
@@ -28,3 +38,12 @@ let city;
 
     let UVI = res.current.uvi;
   }
+
+
+
+
+// Event Listeners
+
+  searchBtnEl.addEventListener("click",function (params) {
+    console.log("Hello World");
+  })
