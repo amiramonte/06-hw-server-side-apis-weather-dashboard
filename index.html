@@ -13,17 +13,29 @@
         <h1>Weather Dashboard</h1>
     </header>
 
-    <aside class="container">
-        <div class="row">
+    <div class="container-fluid">
+        <div class="row g-2">
+          <div class="col-3">
+            <label for="exampleFormControlInput1" class="h2 form-label">Search for a city:</label>
+            <input class="form-control" type="text" placeholder="San Diego" aria-label="default input example">
+            <button type="button" class="w-100 btn btn-primary">Search</button>
 
-            
+          </div>
+
+          <div class="col-9">
+            <div class="p-3 border bg-light">City weather Info Area</div>
+          </div>
+
+          <div class="col-3">
+            <div class="p-3 border bg-light">Past searches area</div>
+          </div>
+
+          <div class="col-9">
+            <div class="p-3 border bg-light">5 day forecast area</div>
+          </div>
+
         </div>
-
-        
-
-
-    </aside>
-
+      </div>
 
 
 
