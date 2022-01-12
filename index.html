@@ -23,14 +23,12 @@
 
           <div class="col-9">
             <div class="card">
-                <div class="h2 fw-bold card-header">
-                  City Name & icon
-                </div>
+                <div class="h2 fw-bold card-header" id="searched-city">Your City</div>
                 <ul class="list-group list-group-flush">
-                  <li class="fw-bold list-group-item">Temp:</li>
-                  <li class="fw-bold list-group-item">Wind:</li>
-                  <li class="fw-bold list-group-item">Humidity:</li>
-                  <li class="fw-bold list-group-item">UV Index:</li>
+                  <li class="fw-bold list-group-item" id="current-temp">Temp:</li>
+                  <li class="fw-bold list-group-item" id="current-wind">Wind:</li>
+                  <li class="fw-bold list-group-item" id="current-humidity">Humidity:</li>
+                  <li class="fw-bold list-group-item" id="current-uv">UV Index:</li>
                 </ul>
               </div>
           </div>
@@ -108,7 +106,7 @@
             </div>
       </div>
 
-
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
@@ -119,6 +117,4 @@
 
 
 
-<!-- create variable to take user input from search bar and pass it as an arguement to the currentWeather function -->
-<!-- have event listener run currentWeather function & console log appropriate information -->
 <!-- assign each piece of information to appropriate line for box -->
