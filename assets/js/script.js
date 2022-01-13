@@ -33,9 +33,14 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
       let currentUvIndexEl = document.createElement('p');
       let currentIconEl = document.createElement('img');
 
+      currentCityEl.textContent = city;
+      currentTempEl.textContent = temp;
+      currentWindEl.textContent = wind;
+      currentHumidityEl.textContent = humidity;
 
+      currentCardEl.append(currentCityEl, currentTempEl, currentWindEl, currentHumidityEl);
 
-
+      currentZone.append(currentCardEl);
 
       getUVI(res.coord.lat, res.coord.lon);
 
@@ -64,6 +69,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
     let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=f35594544b9f9597df35098b60602c39&units=imperial`)
     
     let res = await response.json();
+    
     let forecastZone = document.querySelector("#forecast-stat-zone");
 
     for (let i = 4; i < 40; i+=8){
