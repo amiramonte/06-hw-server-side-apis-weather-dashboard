@@ -21,16 +21,13 @@
             <button type="button" id="search-btn" class="w-100 bg-info btn btn-primary">Search</button>
           </div>
 
+
+          <!-- This is where the current weather information will go -->
           <div class="col-9">
-            <div class="card">
-                <div class="h2 fw-bold card-header" id="searched-city">Your City</div>
-                <ul class="list-group list-group-flush">
-                  <li class="fw-bold list-group-item" id="current-temp">Temp:</li>
-                  <li class="fw-bold list-group-item" id="current-wind">Wind:</li>
-                  <li class="fw-bold list-group-item" id="current-humidity">Humidity:</li>
-                  <li class="fw-bold list-group-item" id="current-uv">UV Index:</li>
-                </ul>
-              </div>
+            <div class="row" id="current-weather-zone"></div>
+
+            
+
           </div>
 
           <div class="col-3">
@@ -42,8 +39,7 @@
           <div class="col-9">
               <h3>5 Day Forecast:</h3>
               <div class="row g-1 justify-content-between" id="forecast-stat-zone"></div>
-
-            </div>
+          </div>
       </div>
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.20.1/moment.min.js"></script>

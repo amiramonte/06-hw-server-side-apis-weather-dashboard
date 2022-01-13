@@ -1,11 +1,6 @@
 // GET ELEMENTS FROM THE DOM
 let searchBtnEl = document.querySelector("#search-btn");
-let searchedCityEl = document.querySelector("#searched-city");
-let currentTempEl = document.querySelector("#current-temp");
-let currentWindEl = document.querySelector("#current-wind");
-let currentHumidityEl = document.querySelector("#current-humidity");
-let currentUvEl = document.querySelector("#current-uv");
-let currentDateEl = document.querySelector("#current-date");
+
 
 
 
@@ -22,23 +17,29 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
       let res = await response.json();
 
+      let currentZone = document.querySelector("#current-weather-zone");
+
       let city = res.name;
       let temp = res.main.temp;
       let humidity = res.main.humidity;
       let wind = res.wind.speed
       let icon = `https://openweathermap.org/img/w/${res.weather[0].icon}.png`;
 
-      let img = document.createElement('img');
-      img.src = icon;
+      let currentCardEl = document.createElement('div');
+      let currentCityEl = document.createElement('h2');
+      let currentTempEl = document.createElement('p');
+      let currentWindEl = document.createElement('p');
+      let currentHumidityEl = document.createElement('p');
+      let currentUvIndexEl = document.createElement('p');
+      let currentIconEl = document.createElement('img');
+
+
+
 
 
       getUVI(res.coord.lat, res.coord.lon);
 
-      searchedCityEl.innerHTML = city + " " + "(" + moment().format('l') + ")" + " ";
-      searchedCityEl.appendChild(img);
-      currentTempEl.textContent = "Temp: " + temp + "\u00B0" + "F";
-      currentWindEl.textContent = "Wind: " + wind + " MPH";
-      currentHumidityEl.textContent = "Humidity: " + humidity + "%";
+      
 
 
 
@@ -54,7 +55,6 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
     let UVI = res.current.uvi;
 
-    currentUvEl.textContent = "UV Index: " + UVI;
 
   }
 
@@ -115,7 +115,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
   searchBtnEl.addEventListener("click",function() {
     let city = document.querySelector("#city-input").value;
-    console.log(city);
     currentWeather(city);
+    
     getForecast(city);
   })
