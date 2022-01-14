@@ -11,6 +11,8 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
 // FUNCTIONS
 
+
+// FUNCTION TO GET CURRENT WEATHER
   async function currentWeather(cityName) {
       let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=f35594544b9f9597df35098b60602c39&units=imperial`);
 
@@ -19,7 +21,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
       if (res.cod > 200) {
         return alert("Check the spelling on that city and search again!");
       }
-
+      
       let currentZone = document.querySelector("#current-weather-zone");
 
       let city = res.name;
@@ -57,7 +59,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
   }
 
 
-
+// FUNCTION TO GET UV INDEX
   async function getUVI(lat, lon) {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=f35594544b9f9597df35098b60602c39`);
 
@@ -75,7 +77,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
   }
 
 
-
+// FUNCTION TO GET 5 DAY FORECAST
   async function getForecast(cityName) {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=f35594544b9f9597df35098b60602c39&units=imperial`)
     
@@ -114,6 +116,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
   }
 
 
+  // FUNCTION TO CREATE BUTTON OF SEARCHED CITY 
   function runningCityList() {
     let placesSearchedZone = document.querySelector("#places-searched");
     
@@ -127,20 +130,10 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
     cityBtnEl.classList.add("w-100", "btn", "btn-secondary", "my-2")
 
 
-
     placesSearchedEl.append(cityBtnEl);
-
     placesSearchedZone.append(placesSearchedEl);
 
-
-    
-
-
   }
-
-
-
-
 
 
 
@@ -154,4 +147,5 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
     
     getForecast(city);
 
+    
   })
