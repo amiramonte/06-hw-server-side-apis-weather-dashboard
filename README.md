@@ -1,5 +1,16 @@
 # 06-hw-server-side-apis-weather-dashboard
 
+## Table of Contents
+
+- [Description](#description)
+- [Deployed Website](#deployed-website)
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Functionality](#functionality)
+- [Credits](#credits)
+
+---
+
 ## Description
 
 This project build was designed for me to learn and implement the following:
@@ -7,6 +18,13 @@ This project build was designed for me to learn and implement the following:
  * API Call requests
  * Fetch and async functions
  * Website design with bootstrap
+
+---
+ 
+## Deployed Website
+  - [Weather Dashboard](https://amiramonte.github.io/06-hw-server-side-apis-weather-dashboard/)
+
+---
 
 ## User Story
 
@@ -32,13 +50,15 @@ WHEN I click on a city in the search history
 THEN I am again presented with current and future conditions for that city
 ```
 
-## Mock-Up
+---
+
+## Functionality
 
 The following image shows the web application's appearance and functionality:
 
-![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions for San Diego.](./assets/images/weather-dashboard-screenshot.png)
+![The weather app includes a search option, a list of cities, and a five-day forecast and current weather conditions.](./assets/images/functional_weather_dashboard.gif)
 
-
+---
 
 ## Credits
 
