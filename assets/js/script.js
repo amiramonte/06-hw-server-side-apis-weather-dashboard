@@ -2,8 +2,10 @@
 
 let searchBtnEl = document.querySelector("#search-btn");
 
+let placesSearchedEl = document.querySelector("#places-searched");
 
-// VARIABLES
+
+// GLOBAL VARIABLES
 
 let weatherRequestUrl = 'http://api.openweathermap.org/data/2.5/weather';
 let apiKey = "f35594544b9f9597df35098b60602c39";
@@ -11,8 +13,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
 // FUNCTIONS
 
-
-// FUNCTION TO GET CURRENT WEATHER
+// FUNCTION TO GET CURRENT WEATHER, CREATE THE HTML ELEMENTS AND POPULATE THEM ON THE PAGE
   async function currentWeather(cityName) {
       let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=f35594544b9f9597df35098b60602c39&units=imperial`);
 
@@ -23,6 +24,8 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
       }
       
       let currentZone = document.querySelector("#current-weather-zone");
+
+      currentZone.innerHTML = " ";
 
       let city = res.name;
       let date = moment().format('l');
@@ -52,14 +55,10 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
       getUVI(res.coord.lat, res.coord.lon);
 
-
-      runningCityList();
-
-
   }
 
 
-// FUNCTION TO GET UV INDEX
+// FUNCTION TO GET UV INDEX, CREATE THE HTML ELEMENT AND POPULATE IT ON THE PAGE
   async function getUVI(lat, lon) {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=f35594544b9f9597df35098b60602c39`);
 
@@ -77,7 +76,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
   }
 
 
-// FUNCTION TO GET 5 DAY FORECAST
+// FUNCTION TO GET 5 DAY FORECAST, CREATE THE HTML ELEMENTS AND POPULATE IT ON THE PAGE
   async function getForecast(cityName) {
     let response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${cityName}&appid=f35594544b9f9597df35098b60602c39&units=imperial`)
     
@@ -85,6 +84,8 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
     
     let forecastZone = document.querySelector("#forecast-stat-zone");
+
+    forecastZone.innerHTML = " ";
 
     for (let i = 4; i < 40; i+=8){
       let tempData = res.list[i];
@@ -116,7 +117,7 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
   }
 
 
-  // FUNCTION TO CREATE BUTTON OF SEARCHED CITY 
+  // FUNCTION TO CREATE BUTTON FOR EACH PREVIOUSLY SEARCHED CITY AND HAVE IT POPULATE BELOW THE SEARCH BAR
   function runningCityList() {
     let placesSearchedZone = document.querySelector("#places-searched");
     
@@ -127,19 +128,44 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
     cityBtnEl.textContent = city;
 
+
     cityBtnEl.classList.add("w-100", "btn", "btn-secondary", "my-2")
 
 
     placesSearchedEl.append(cityBtnEl);
     placesSearchedZone.append(placesSearchedEl);
 
+
   }
 
+// FUNCTION TO RE-RUN API CALL WITH PREVIOUSLY SEARCHED CITY WHEN BUTTON WITH PREVIOUSLY SEARCHED CITY IS SELECTED 
+function searchHistory(e) {
+  let btn = e.target;
+  let city = btn.textContent;
+
+  currentWeather(city);
+    
+  getForecast(city);
+}
+
+// FUNCTION TO SAVE PREVIOUSLY SEARCHED CITY TO LOCAL STORAGE
+function searchedCities(city) {
+  let history = JSON.parse(localStorage.getItem("history")) || []
+  
+if (history.indexOf(city) !== -1) {
+  return
+}
+
+  history.push(city);
+
+  localStorage.setItem("history", JSON.stringify(history));
+}
 
 
 
-// Event Listeners
+// EVENT LISTENERS
 
+// EVENT LISTENER TO RUN FUNCTIONS WHEN THE "SEARCH" BUTTON IS SELECTED
   searchBtnEl.addEventListener("click",function() {
     let city = document.querySelector("#city-input").value;
 
@@ -147,5 +173,15 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
     
     getForecast(city);
 
-    
+    searchedCities(city);
+
+    runningCityList(city);
+
+    let input = document.querySelector("#city-input");
+
+    input.value = " ";
+
   })
+
+// EVENT LISTENER TO RE RUN THE API CALLS WITH PREVIOUSLY SEARCHED CITIES WHEN CORRESPONDING PREVIOUSLY SEARCHED CITY BUTTON IS SELECTED
+  placesSearchedEl.addEventListener("click", searchHistory);
