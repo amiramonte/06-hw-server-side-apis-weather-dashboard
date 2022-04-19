@@ -27,7 +27,7 @@ The following video shows the weather dashboard's appearance and functionality:
 ---
 
 ## Deployed Application
-- [Weather Dashboard](https://amiramonte.github.io/06-hw-server-side-apis-weather-dashboard/)
+- [Weather Dashboard](https://amiramonte.github.io/server-side-apis-weather-dashboard/)
 
 ---
 
