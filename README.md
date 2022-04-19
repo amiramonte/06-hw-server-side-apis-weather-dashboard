@@ -14,11 +14,7 @@
 
 ## Description
 
-This project build was designed for me to learn and implement the following:
-
- * API Call requests
- * Fetch and async functions
- * Website design with bootstrap
+This application is a weather dashboard designed to retrieve 5 day forecasts for any city entered through an API call to OpenWeather.org. 
 
 ---
 
