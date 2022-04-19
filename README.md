@@ -31,11 +31,15 @@ The following video shows the weather dashboard's appearance and functionality:
 ---
 
 ## Deployed Application
-  - [Weather Dashboard](https://amiramonte.github.io/06-hw-server-side-apis-weather-dashboard/)
+- [Weather Dashboard](https://amiramonte.github.io/06-hw-server-side-apis-weather-dashboard/)
 
 ---
 
 ## Technologies
+
+- [JavaScript](https://www.javascript.com/)
+- [Bootstrap](https://getbootstrap.com/)
+- [OpenWeather API](https://openweathermap.org/api)
 
 ---
 
