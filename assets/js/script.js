@@ -43,7 +43,6 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
       currentIconEl.setAttribute("src", `https://openweathermap.org/img/w/${res.weather[0].icon}.png`)
 
-
       currentCityEl.textContent = `${city} ${date}`;
       currentTempEl.textContent = `Temp: ${temp} \u00B0 F`;
       currentWindEl.textContent = `Wind: ${wind} MPH`;
@@ -54,7 +53,6 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
       currentZone.append(currentCardEl);
 
       getUVI(res.coord.lat, res.coord.lon);
-
   }
 
 
@@ -82,14 +80,12 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
     
     let res = await response.json();
 
-    
     let forecastZone = document.querySelector("#forecast-stat-zone");
 
     forecastZone.innerHTML = " ";
 
     for (let i = 4; i < 40; i+=8){
       let tempData = res.list[i];
-     
 
       let cardEl = document.createElement('div');
       let dateEl = document.createElement('h5')
@@ -113,7 +109,6 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
       forecastZone.append(cardEl);
     }
 
-
   }
 
 
@@ -128,14 +123,10 @@ let apiKey = "f35594544b9f9597df35098b60602c39";
 
     cityBtnEl.textContent = city;
 
-
     cityBtnEl.classList.add("w-100", "btn", "btn-secondary", "my-2")
-
 
     placesSearchedEl.append(cityBtnEl);
     placesSearchedZone.append(placesSearchedEl);
-
-
   }
 
 // FUNCTION TO RE-RUN API CALL WITH PREVIOUSLY SEARCHED CITY WHEN BUTTON WITH PREVIOUSLY SEARCHED CITY IS SELECTED 
